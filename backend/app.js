@@ -23,8 +23,18 @@ DB.connect(err=>{
   }
 });
 
+//route
 app.get('/',(req,res)=>{
-  res.send('Connected to API');
+  DB.query('SELECT * FROM forest_cover',(err,result,fields)=>{
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.send({
+        result:result
+      });
+    }
+  });
 });
 
 var port = 3000;
