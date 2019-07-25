@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
+app.use(cors());
+
 require('dotenv').config();
 
 //connect to DB
